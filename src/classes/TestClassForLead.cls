@@ -41,6 +41,7 @@ public class TestClassForLead
         dupeLead.Status	='Working - Contacted';
         try
         {
+            insert LeadsList;
             insert dupeLead;
         }
         catch(Exception e)
@@ -118,7 +119,7 @@ public class TestClassForLead
     System.assertEquals(200,200);
     }
     
-    // 3. a Clon on Single Record
+    // 3. a Clone on Single Record
     static testMethod void createCloneOnSingleRecord()
     {
         List<Lead> LeadsList2 = new List<Lead>();
@@ -150,8 +151,8 @@ public class TestClassForLead
         }
         insert CloneLeads;
         
-        List<Lead> check= new List<Lead> ([select id,FirstName,LastName,Email,Phone,Company,Status from Lead]); 
-   		System.assertEquals(400, 400);
+        List<Lead> check= new List<Lead> ([select id,FirstName,LastName,Email,Phone,Company,Status from Lead ]); 
+   		System.assertEquals(CloneLeads.size(), check.size()-CloneLeads.size());
     }
     
     
