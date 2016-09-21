@@ -18,11 +18,12 @@ public class CloningALeadHandler
                 newLead.Email ='a'+ l.Email;
                 newLead.Phone ='91'+ l.Phone;
                 newLead.status = 'Working – Contacted';
+                newLead.Company='Z'+l.Company;
                 cloneleads.add(newLead);
                 
             }
         }
-        
+        insert cloneleads;
         System.debug('cloneleads='+cloneleads);
         
     }

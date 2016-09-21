@@ -1,4 +1,4 @@
-trigger OpportunityTrigger on Opportunity (before insert,after insert )
+trigger OpportunityTrigger on Opportunity (before insert,after insert,before update, after update )
 {
     if(trigger.isAfter)
 	{
@@ -8,7 +8,7 @@ trigger OpportunityTrigger on Opportunity (before insert,after insert )
         }
        if(Trigger.isUpdate)
        {
-            
+            HandlerOfOpportunityNotificationAlert.updateOpportunityNotification(Trigger.newMap,Trigger.oldMap,Trigger.New); 
        }  
    }
 
